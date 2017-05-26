@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--book_list_item.xml colors-->
+    <color name="BookListItem_TitleTextView_Color">@android:color/black</color>
+    <color name="BookListItem_AuthorTextView_Color">@android:color/darker_gray</color>
+</resources>

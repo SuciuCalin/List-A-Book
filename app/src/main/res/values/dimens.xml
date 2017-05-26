@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--activity_main.xml dimens-->
+    <dimen name="ActivityMain_ParentLayout_padding">16dp</dimen>
+
+    <!--book_list_item.xml dimens-->
+    <dimen name="BookListItem_TitleTextView_TextSize">16sp</dimen>
+    <dimen name="BookListItem_TextViews_MarginBottom">8dp</dimen>
+    <dimen name="BookListItem_AuthorTextView_TextSize">14sp</dimen>
+
+</resources>

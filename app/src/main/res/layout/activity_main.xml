@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityMain_ParentLayout"
+    tools:context="com.example.android.list_a_book.MainActivity">
+
+    <EditText
+        android:id="@+id/edit_text_search"
+        style="@style/ActivityMain_EditText" />
+
+    <ImageButton
+        android:id="@+id/image_button_search"
+        style="@style/ActivityMain_ImageButton"
+        android:contentDescription="@string/search_button" />
+
+    <TextView
+        android:id="@+id/no_results_found"
+        style="@style/ActivityMain_TextView"
+        tools:visibility="visible" />
+
+    <ListView
+        android:id="@+id/book_list_view"
+        style="@style/ActivityMain_ListView" />
+
+</RelativeLayout>
+

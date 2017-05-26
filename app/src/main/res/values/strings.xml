@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">List-A-Book</string>
+
+    <string name="hint_text">Search Google Books</string>
+    <string name="no_books_found">No matching results found.</string>
+    <string name="no_internet_connection">No internet connection available…\nPlease check your connection settings.</string>
+    <string name="search_button">search_button_context</string>
+
+</resources>

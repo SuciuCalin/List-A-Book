@@ -1,0 +1,69 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <!--activity_main.xml styles-->
+    <style name="ActivityMain_ParentLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">@dimen/ActivityMain_ParentLayout_padding</item>
+    </style>
+
+    <style name="ActivityMain_EditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">text</item>
+        <item name="android:hint">@string/hint_text</item>
+    </style>
+
+    <style name="ActivityMain_ImageButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@android:drawable/ic_menu_search</item>
+        <item name="android:layout_alignRight">@+id/book_list_view</item>
+        <item name="android:layout_alignEnd">@+id/book_list_view</item>
+    </style>
+
+    <style name="ActivityMain_TextView" parent="BookListItem_TitleTextView">
+        <item name="android:layout_below">@+id/edit_text_search</item>
+        <item name="android:text">@string/no_books_found</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ActivityMain_ListView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_below">@+id/no_results_found</item>
+    </style>
+
+
+    <!--book_list_item.xml styles-->
+    <style name="BookListItem_ParentLayout" parent="ActivityMain_ParentLayout">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="BookListItem_TitleTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/BookListItem_TitleTextView_TextSize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">@dimen/BookListItem_TextViews_MarginBottom</item>
+        <item name="android:textColor">@color/BookListItem_TitleTextView_Color</item>
+    </style>
+
+    <style name="BookListItem_AuthorTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/BookListItem_AuthorTextView_TextSize</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:layout_marginBottom">@dimen/BookListItem_TextViews_MarginBottom</item>
+        <item name="android:textColor">@color/BookListItem_AuthorTextView_Color</item>
+    </style>
+
+</resources>
