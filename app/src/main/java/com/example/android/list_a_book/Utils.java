@@ -34,8 +34,13 @@ public class Utils {
                 JSONObject bookListObject = bookJsonArray.getJSONObject(i);
                 JSONObject volumeInfo = bookListObject.getJSONObject("volumeInfo");
                 String title = volumeInfo.getString("title");
-                JSONArray authors = volumeInfo.getJSONArray("authors");
-                String authorsList = formatAuthorsList(authors);
+
+                String authorsList = null;
+                if (volumeInfo.has("authors")) {
+                    JSONArray authors = volumeInfo.getJSONArray("authors");
+                    authorsList = formatAuthorsList(authors);
+                }
+
                 String url = volumeInfo.getString("infoLink");
 
                 //Create a new Book object with the title, author, and url from the JSON response
@@ -44,7 +49,7 @@ public class Utils {
             }
 
         } catch (JSONException e) {
-            Log.e("Utils", "Problem parsing the earthquake JSON results", e);
+            Log.e("Utils", "Problem parsing the JSON results", e);
         }
         return books;
     }

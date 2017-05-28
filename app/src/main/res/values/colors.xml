@@ -6,5 +6,5 @@
 
     <!--book_list_item.xml colors-->
     <color name="BookListItem_TitleTextView_Color">@android:color/black</color>
-    <color name="BookListItem_AuthorTextView_Color">@android:color/darker_gray</color>
+    <color name="BookListItem_AuthorTextView_Color">@android:color/holo_blue_light</color>
 </resources>

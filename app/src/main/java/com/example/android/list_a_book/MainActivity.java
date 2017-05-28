@@ -1,19 +1,17 @@
 package com.example.android.list_a_book;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private BookAdapter mBookAdapter;
     private TextView mNoResultsTextView;
     private ImageButton mSearchImageButton;
-    private ListView bookListView;
+    private RecyclerView mRecyclerView;
+    private LinearLayoutManager mLayoutManager;
 
 
     @Override
@@ -46,26 +45,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bookListView = (ListView) findViewById(R.id.book_list_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.book_recycler_view);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
         mEditText = (EditText) findViewById(R.id.edit_text_search);
         mNoResultsTextView = (TextView) findViewById(R.id.no_results_found);
         mSearchImageButton = (ImageButton) findViewById(R.id.image_button_search);
 
         mBookAdapter = new BookAdapter(this, new ArrayList<Book>());
-        bookListView.setAdapter(mBookAdapter);
-
-        // Set an onClickListener on the list view, which sends an intent to open a website
-        // with more information about the current book.
-        bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                Book currentBook = mBookAdapter.getItem(position);
-                Uri bookUri = Uri.parse(currentBook.getBookUrl());
-                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, bookUri);
-                startActivity(websiteIntent);
-            }
-        });
+        mRecyclerView.setAdapter(mBookAdapter);
 
         // If there is a network connection, fetch the data.
         // Else display the no connection error message.
@@ -89,12 +78,7 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
 
-        try {
-            return networkInfo != null && networkInfo.isConnected();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        return networkInfo != null && networkInfo.isConnectedOrConnecting();
     }
 
     //Checks to update the UI with the search results
@@ -104,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             mNoResultsTextView.setVisibility(View.GONE);
         }
-        mBookAdapter.clear();
-        mBookAdapter.addAll(bookList);
+        mBookAdapter.swap(bookList);
     }
 
     //Gets the search input
@@ -155,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
         private String makeHttpRequest(URL url) throws IOException {
             String jsonResponse = "";
 
-            //Return early if the URL is null
             if (url == null) {
                 return jsonResponse;
             }

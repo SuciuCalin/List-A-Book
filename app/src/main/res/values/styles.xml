@@ -26,8 +26,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:src">@android:drawable/ic_menu_search</item>
-        <item name="android:layout_alignRight">@+id/book_list_view</item>
-        <item name="android:layout_alignEnd">@+id/book_list_view</item>
+        <item name="android:layout_alignRight">@+id/book_recycler_view</item>
+        <item name="android:layout_alignEnd">@+id/book_recycler_view</item>
     </style>
 
     <style name="ActivityMain_TextView" parent="BookListItem_TitleTextView">
@@ -36,7 +36,7 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="ActivityMain_ListView">
+    <style name="ActivityMain_RecyclerView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_below">@+id/no_results_found</item>
@@ -44,8 +44,12 @@
 
 
     <!--book_list_item.xml styles-->
-    <style name="BookListItem_ParentLayout" parent="ActivityMain_ParentLayout">
+    <style name="BookListItem_ParentLayout">
         <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/ActivityMain_ParentLayout_padding</item>
+
     </style>
 
     <style name="BookListItem_TitleTextView">

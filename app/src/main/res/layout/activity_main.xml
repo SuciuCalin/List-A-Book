@@ -20,9 +20,9 @@
         style="@style/ActivityMain_TextView"
         tools:visibility="visible" />
 
-    <ListView
-        android:id="@+id/book_list_view"
-        style="@style/ActivityMain_ListView" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/book_recycler_view"
+        style="@style/ActivityMain_RecyclerView" />
 
 </RelativeLayout>
 

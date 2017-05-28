@@ -18,9 +18,9 @@ public class Book {
      * @param bookUrl    is the website url of the book
      */
     public Book(String bookTitle, String bookAuthor, String bookUrl) {
-        mBookTitle = bookTitle;
-        mBookAuthor = bookAuthor;
-        mBookUrl = bookUrl;
+        this.mBookTitle = bookTitle;
+        this.mBookAuthor = bookAuthor;
+        this.mBookUrl = bookUrl;
     }
 
     //Returns the title of the book
